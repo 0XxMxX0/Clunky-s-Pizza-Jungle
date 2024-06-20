@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://vxk5qqwjbr70"]
+
+[ext_resource type="Texture2D" uid="uid://pjitii8uvefa" path="res://assents/tiles/edger.png" id="1_25wxb"]
+[ext_resource type="Texture2D" uid="uid://3ksdfa2diwgt" path="res://assents/tiles/ground.png" id="1_ioq3v"]
+[ext_resource type="PackedScene" uid="uid://cn4hlujfhsrlm" path="res://scenes/player.tscn" id="2_77hv0"]
+[ext_resource type="Texture2D" uid="uid://bj8pi08w1wdd0" path="res://assents/tiles/wall.png" id="3_cg1wm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yjna"]
+texture = ExtResource("1_25wxb")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vlisq"]
+texture = ExtResource("1_ioq3v")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_101iq"]
+texture = ExtResource("3_cg1wm")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_22vd3"]
+sources/7 = SubResource("TileSetAtlasSource_1yjna")
+sources/8 = SubResource("TileSetAtlasSource_vlisq")
+sources/9 = SubResource("TileSetAtlasSource_101iq")
+
+[node name="Pizzaria" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_22vd3")
+format = 2
+layer_0/tile_data = PackedInt32Array(196608, 8, 0, 262144, 8, 1, 196609, 65544, 0, 262145, 65544, 1, 196610, 131080, 0, 262146, 131080, 1, 196611, 196616, 0, 262147, 196616, 1)
+layer_1/name = "bordas"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Player" parent="." instance=ExtResource("2_77hv0")]
+position = Vector2(29, 64)
+scale = Vector2(0.97004, 0.97004)
