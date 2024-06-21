@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdbefxlgnr7sx"
-path="res://.godot/imported/idle.png-590b5c0b9965d046a0b15a2110fc85a8.ctex"
+uid="uid://dbseyk6q5mlo2"
+path="res://.godot/imported/idle_dog_pizza.png-0e4e87edd3e220fd70b2d0b6b340c0c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/player/idle.png"
-dest_files=["res://.godot/imported/idle.png-590b5c0b9965d046a0b15a2110fc85a8.ctex"]
+source_file="res://assents/clients/idle_dog_pizza.png"
+dest_files=["res://.godot/imported/idle_dog_pizza.png-0e4e87edd3e220fd70b2d0b6b340c0c5.ctex"]
 
 [params]
 

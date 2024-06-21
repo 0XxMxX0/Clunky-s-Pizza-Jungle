@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pjitii8uvefa"
-path="res://.godot/imported/edger.png-8327e0d26b0b26639a43e09767d11202.ctex"
+uid="uid://bv5be5w0ev58a"
+path="res://.godot/imported/idle_dog.png-522cd4912f0c28935dd108131ecf573c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/tiles/edger.png"
-dest_files=["res://.godot/imported/edger.png-8327e0d26b0b26639a43e09767d11202.ctex"]
+source_file="res://assents/clients/idle_dog.png"
+dest_files=["res://.godot/imported/idle_dog.png-522cd4912f0c28935dd108131ecf573c.ctex"]
 
 [params]
 

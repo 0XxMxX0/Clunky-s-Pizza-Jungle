@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://chx6yagy32u57"]
+
+[ext_resource type="Script" path="res://scripts/Bench.gd" id="1_d8lau"]
+[ext_resource type="Texture2D" uid="uid://dw73kl3rygat2" path="res://assents/tiles/bench.png" id="2_1repm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6f2k"]
+size = Vector2(64, 28)
+
+[sub_resource type="SystemFont" id="SystemFont_q0r2o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_upik3"]
+line_spacing = 1.0
+font = SubResource("SystemFont_q0r2o")
+font_size = 9
+font_color = Color(1, 0.494118, 0.105882, 1)
+outline_size = 2
+outline_color = Color(0, 0.0235294, 0, 1)
+
+[node name="Bench" type="Area2D"]
+position = Vector2(26, 76)
+script = ExtResource("1_d8lau")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(22, 4)
+shape = SubResource("RectangleShape2D_t6f2k")
+
+[node name="texture" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(22, 4)
+texture = ExtResource("2_1repm")
+
+[node name="order" type="Label" parent="."]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_upik3")
+horizontal_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

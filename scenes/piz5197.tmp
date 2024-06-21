@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://vxk5qqwjbr70"]
+[gd_scene load_steps=18 format=3 uid="uid://vxk5qqwjbr70"]
 
 [ext_resource type="Texture2D" uid="uid://pjitii8uvefa" path="res://assents/tiles/edger.png" id="1_25wxb"]
 [ext_resource type="Texture2D" uid="uid://3ksdfa2diwgt" path="res://assents/tiles/ground.png" id="1_ioq3v"]
@@ -6,11 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bj8pi08w1wdd0" path="res://assents/tiles/wall.png" id="3_cg1wm"]
 [ext_resource type="Texture2D" uid="uid://dw73kl3rygat2" path="res://assents/tiles/bench.png" id="4_v4wax"]
 [ext_resource type="Texture2D" uid="uid://cjuyneybspwof" path="res://assents/tiles/box.png" id="5_llgar"]
-[ext_resource type="PackedScene" uid="uid://chx6yagy32u57" path="res://scenes/bench.tscn" id="8_bm12t"]
-[ext_resource type="Script" path="res://scripts/Client.gd" id="9_l7h84"]
-[ext_resource type="Texture2D" uid="uid://bv5be5w0ev58a" path="res://assents/clients/idle_dog.png" id="10_8ydd1"]
-[ext_resource type="Texture2D" uid="uid://dbseyk6q5mlo2" path="res://assents/clients/idle_dog_pizza.png" id="10_kmfpa"]
-[ext_resource type="Script" path="res://scripts/box.gd" id="12_5wpek"]
+[ext_resource type="PackedScene" path="res://scenes/order.tscn" id="7_3aon7"]
+[ext_resource type="Script" path="res://scripts/Bench.gd" id="8_5y70m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyuq8"]
 texture = ExtResource("1_25wxb")
@@ -265,150 +262,18 @@ sources/2 = SubResource("TileSetAtlasSource_sxj53")
 sources/3 = SubResource("TileSetAtlasSource_iirp1")
 sources/5 = SubResource("TileSetAtlasSource_mdwdh")
 
-[sub_resource type="LabelSettings" id="LabelSettings_rss0r"]
-font_size = 10
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6f2k"]
+size = Vector2(64, 28)
 
-[sub_resource type="Animation" id="Animation_bcjv0"]
-resource_name = "idle"
-length = 0.95
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("texture:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("texture:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_8ydd1")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("texture:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
+[sub_resource type="SystemFont" id="SystemFont_q0r2o"]
 
-[sub_resource type="Animation" id="Animation_m6roo"]
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("texture:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("texture:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("texture:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_8ydd1")]
-}
-
-[sub_resource type="Animation" id="Animation_ai3gn"]
-resource_name = "idle_pizza"
-length = 0.95
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("texture:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("texture:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("texture:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_kmfpa")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_swnpt"]
-_data = {
-"RESET": SubResource("Animation_m6roo"),
-"idle": SubResource("Animation_bcjv0"),
-"idle_pizza": SubResource("Animation_ai3gn")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdadm"]
-size = Vector2(24, 38)
-
-[sub_resource type="Curve2D" id="Curve2D_rd7cv"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 18, 158, 0, 0, 0, 0, 18, 158, 0, 0, 0, 0, 154, 159, 0, 0, 0, 0, 87, 159)
-}
-point_count = 4
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbopr"]
-size = Vector2(136, 19)
+[sub_resource type="LabelSettings" id="LabelSettings_upik3"]
+line_spacing = 1.0
+font = SubResource("SystemFont_q0r2o")
+font_size = 9
+font_color = Color(1, 0.494118, 0.105882, 1)
+outline_size = 2
+outline_color = Color(0, 0.0235294, 0, 1)
 
 [node name="Pizzaria" type="Node2D"]
 
@@ -433,77 +298,39 @@ layer_4/tile_data = PackedInt32Array(589824, 5, 1, 589825, 65541, 1, 589826, 655
 position = Vector2(87, 117)
 scale = Vector2(0.812065, 0.812065)
 
-[node name="Control" type="Control" parent="Player"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -93.5886
-offset_top = -121.911
-offset_right = -93.5886
-offset_bottom = -121.911
-size_flags_horizontal = 4
-
-[node name="Label_money" type="Label" parent="Player/Control"]
-layout_mode = 0
-offset_left = -28.3229
-offset_top = 8.62
-offset_right = 16.6771
-offset_bottom = 31.62
-text = "Dinheiro:"
-label_settings = SubResource("LabelSettings_rss0r")
-
-[node name="money" type="Label" parent="Player/Control"]
+[node name="Order" parent="." instance=ExtResource("7_3aon7")]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 20.9343
-offset_top = 9.85143
-offset_right = 65.9343
-offset_bottom = 32.8514
-text = "0
-"
-label_settings = SubResource("LabelSettings_rss0r")
+z_index = 2
+position = Vector2(110, 158)
+scale = Vector2(0.605556, 0.605556)
 
-[node name="Bench" parent="." instance=ExtResource("8_bm12t")]
+[node name="Bench" type="Area2D" parent="."]
+position = Vector2(26, 76)
+script = ExtResource("8_5y70m")
 
-[node name="Client" type="Area2D" parent="." groups=["Client"]]
-unique_name_in_owner = true
-z_index = 1
-position = Vector2(69, 186)
-script = ExtResource("9_l7h84")
+[node name="collision" type="CollisionShape2D" parent="Bench"]
+position = Vector2(22, 4)
+shape = SubResource("RectangleShape2D_t6f2k")
 
-[node name="texture" type="Sprite2D" parent="Client"]
-position = Vector2(5, -33)
-texture = ExtResource("10_8ydd1")
-hframes = 10
+[node name="texture" type="Sprite2D" parent="Bench"]
+z_index = -1
+position = Vector2(22, 4)
+texture = ExtResource("4_v4wax")
 
-[node name="animation" type="AnimationPlayer" parent="Client"]
-libraries = {
-"": SubResource("AnimationLibrary_swnpt")
-}
-autoplay = "idle"
+[node name="order" type="Label" parent="Bench"]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_upik3")
+horizontal_alignment = 1
 
-[node name="collision" type="CollisionShape2D" parent="Client"]
-position = Vector2(4, -20)
-shape = SubResource("RectangleShape2D_bdadm")
-
-[node name="box" type="Path2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -1)
-curve = SubResource("Curve2D_rd7cv")
-script = ExtResource("12_5wpek")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="box"]
-unique_name_in_owner = true
-position = Vector2(17.9045, 157.999)
-
-[node name="Area2D" type="Area2D" parent="box"]
-position = Vector2(34, 160)
-
-[node name="collision" type="CollisionShape2D" parent="box/Area2D"]
-position = Vector2(57, 0.5)
-shape = SubResource("RectangleShape2D_rbopr")
-
-[connection signal="body_entered" from="Client" to="Client" method="_on_body_entered"]
-[connection signal="body_exited" from="Client" to="Client" method="_on_body_exited"]
-[connection signal="input_event" from="Client" to="Client" method="_on_input_event"]
-[connection signal="area_entered" from="box/Area2D" to="box" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="box/Area2D" to="box" method="_on_area_2d_body_entered"]
+[connection signal="input_event" from="Bench" to="Bench" method="_on_input_event"]
