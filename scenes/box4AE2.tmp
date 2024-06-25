@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1ujfvhwvk2ar"]
+
+[ext_resource type="Script" path="res://scripts/box.gd" id="1_bnymm"]
+[ext_resource type="Texture2D" uid="uid://cjuyneybspwof" path="res://assents/tiles/box.png" id="2_v50g7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbopr"]
+size = Vector2(64, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttsbb"]
+size = Vector2(64, 30)
+
+[node name="box" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_bnymm")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = ExtResource("2_v50g7")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_rbopr")
+debug_color = Color(0.633314, 0.526316, 0.117328, 0.42)
+
+[node name="area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ttsbb")
+
+[connection signal="area_entered" from="area" to="." method="_on_area_area_entered"]
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

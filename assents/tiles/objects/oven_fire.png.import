@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw73kl3rygat2"
-path="res://.godot/imported/bench.png-7eb295d13c44be1bae187afc6f5d3a60.ctex"
+uid="uid://b6l4l4b0vkvo3"
+path="res://.godot/imported/oven_fire.png-5bc081a33045272cb1e509924e49a320.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/tiles/bench.png"
-dest_files=["res://.godot/imported/bench.png-7eb295d13c44be1bae187afc6f5d3a60.ctex"]
+source_file="res://assents/tiles/objects/oven_fire.png"
+dest_files=["res://.godot/imported/oven_fire.png-5bc081a33045272cb1e509924e49a320.ctex"]
 
 [params]
 

@@ -7,7 +7,9 @@ var speed: float = 1.5
 @onready var animation: AnimationPlayer = $animation
 @onready var texture: Sprite2D = $texture
 @onready var player: Player = self
-@onready var order: Label = $order
+@onready var orderText: Label = $order
+
+@onready var money: Label = %money
 
 signal get_order
 var order_pizza = null
@@ -17,9 +19,21 @@ var get_pizza: bool = false
 func _ready():
 	GameManager.player = self
 
-func _physics_process(delta):
-	read_input()
+func _process(delta):
+	if money.text >= '0':
+		money.text = str(GameManager.player_money)
+	else:
+		money.text = '0'
 
+func _physics_process(delta):
+	
+	read_input()
+	
+	if is_on_floor():
+		z_index = -1 
+	else:
+		z_index = 0
+	
 func process_animation():
 	if input_vector != Vector2(0,0):
 		if input_vector.x < 0:
@@ -46,10 +60,10 @@ func read_input():
 	process_animation()
 	
 
-func _on_get_order(pizza):
-	if pizza != null:
-		order_pizza = pizza
-		order.text = pizza
+func _on_get_order(order):
+	if order != null:
+		order_pizza = order
+		orderText.text = order.flavor
 
 func _on_get_pizza_done():
 	get_pizza = true
