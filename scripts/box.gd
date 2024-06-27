@@ -7,13 +7,11 @@ var order_placed: bool = false
 @onready var client = null
 
 var pizza_flavor = {
-	"calabresa": 25,
-	"mussarela": 15
+	"pizza": 25,
 }
 
 func _ready():
 	GameManager.box_position = position
-	
 
 func _process(delta):
 	if client == null: return
@@ -23,23 +21,16 @@ func _process(delta):
 	
 	if add_order and not order_placed:
 		order_placed = true
+		add_order = false
 		
 		var order_scene = load("res://scenes/order.tscn")
 		var order = order_scene.instantiate()
-		var random_number = randi_range(0,2)
-		var key_order = randi()
 		
-		if random_number == 1:
-			order.add_order("mussarela", pizza_flavor["mussarela"], key_order)
-		else:
-			order.add_order("calabresa", pizza_flavor["calabresa"], key_order)
-		
-		add_order = false
+		client.order_client = pizza_flavor["pizza"]
 		
 		if client.get_pizza and client.order_client == null:
 			client.get_pizza = false
-			 
-		client.order_client = key_order
+		
 		client.in_wait = 0
 		order.global_position = $Marker2D.global_position
 		get_parent().add_child(order)

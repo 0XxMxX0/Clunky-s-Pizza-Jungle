@@ -2,17 +2,15 @@ extends Area2D
 
 var pizza_client = {
 	"flavor": "",
-	"price": "",
-	"client": ""
+	"price": ""
 }
 var player_in_order_area = false
 
 @onready var player: Player = GameManager.player
 
-func add_order(flavor, price, client):
+func add_order(flavor, price):
 	pizza_client.flavor = flavor
 	pizza_client.price = price
-	pizza_client.client = client
 
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

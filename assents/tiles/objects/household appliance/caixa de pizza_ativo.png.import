@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx7ey6lqvdmpr"
-path="res://.godot/imported/trash.png-36fe7450f3661d7faf7a3d4e12888f14.ctex"
+uid="uid://b5ry1do3syxen"
+path="res://.godot/imported/caixa de pizza_ativo.png-6be3a253262ad4263e48138bf724726f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/tiles/objects/trash.png"
-dest_files=["res://.godot/imported/trash.png-36fe7450f3661d7faf7a3d4e12888f14.ctex"]
+source_file="res://assents/tiles/objects/household appliance/caixa de pizza_ativo.png"
+dest_files=["res://.godot/imported/caixa de pizza_ativo.png-6be3a253262ad4263e48138bf724726f.ctex"]
 
 [params]
 

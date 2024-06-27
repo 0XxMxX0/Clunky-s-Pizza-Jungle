@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjuyneybspwof"
-path="res://.godot/imported/box.png-b7a0b570895b5a5c3ef95f263c4402ed.ctex"
+uid="uid://ey0y2v07vltp"
+path="res://.godot/imported/saladeiro.png-eb202b22f20dbad6b57d35890d70557b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/tiles/objects/box.png"
-dest_files=["res://.godot/imported/box.png-b7a0b570895b5a5c3ef95f263c4402ed.ctex"]
+source_file="res://assents/tiles/objects/household appliance/saladeiro.png"
+dest_files=["res://.godot/imported/saladeiro.png-eb202b22f20dbad6b57d35890d70557b.ctex"]
 
 [params]
 

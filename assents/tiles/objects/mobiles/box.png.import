@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw73kl3rygat2"
-path="res://.godot/imported/counter.png-e828dc3dd81c2352d5c8b8eccde2a739.ctex"
+uid="uid://cjuyneybspwof"
+path="res://.godot/imported/box.png-e07e8ea6cd96a4c945a2d64389b3a077.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/tiles/objects/counter.png"
-dest_files=["res://.godot/imported/counter.png-e828dc3dd81c2352d5c8b8eccde2a739.ctex"]
+source_file="res://assents/tiles/objects/mobiles/box.png"
+dest_files=["res://.godot/imported/box.png-e07e8ea6cd96a4c945a2d64389b3a077.ctex"]
 
 [params]
 
