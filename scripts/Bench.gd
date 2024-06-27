@@ -13,23 +13,24 @@ func _process(delta):
 		prepare_cooldown += delta
 		if prepare_cooldown > 5:
 			pizza_in_prepare = false
+			player.in_cooking = false
 			prepare_cooldown = 0 
-			pizza_is_done = true
 			$order.text = "pizza pronta"
+			$animation.play("default")
+			$order.text = ""
+			player.emit_signal("get_pizza_done")
+			player.order_pizza = order_pizza
 
 func _on_area_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		var mouse_button_event = event as InputEventMouseButton
 		var button_index = mouse_button_event.button_index
 		
-		if  mouse_button_event.pressed and button_index == 1 and player.order_pizza != null and not pizza_in_prepare and not pizza_is_done:
+		if  mouse_button_event.pressed and button_index == 1 and player.order_pizza != null and not player.get_pizza and not pizza_in_prepare and not pizza_is_done:
 			$order.text = "preparando"
 			pizza_in_prepare = true
+			player.in_cooking = true
 			order_pizza = player.order_pizza
 			player.order_pizza = null
 			player.orderText.text = ""
-		elif mouse_button_event.pressed and button_index == 1 and not pizza_in_prepare and pizza_is_done:
-			$order.text = ""
-			pizza_is_done = false
-			player.emit_signal("get_pizza_done")
-			player.order_pizza = order_pizza
+			$animation.play("is_on")

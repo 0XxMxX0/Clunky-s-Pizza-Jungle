@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://chx6yagy32u57"]
+[gd_scene load_steps=12 format=3 uid="uid://chx6yagy32u57"]
 
 [ext_resource type="Script" path="res://scripts/Bench.gd" id="1_d8lau"]
 [ext_resource type="Texture2D" uid="uid://dcv7wb6qnvn0v" path="res://assents/tiles/objects/oven.png" id="2_jkmr7"]
+[ext_resource type="Texture2D" uid="uid://b6l4l4b0vkvo3" path="res://assents/tiles/objects/oven_fire.png" id="3_jm7ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6f2k"]
 size = Vector2(64, 22)
@@ -20,6 +21,133 @@ outline_color = Color(0, 0.0235294, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_loilg"]
 size = Vector2(64, 32)
 
+[sub_resource type="Animation" id="Animation_48gfp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_jkmr7")]
+}
+
+[sub_resource type="Animation" id="Animation_lcps7"]
+resource_name = "default"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_jkmr7")]
+}
+
+[sub_resource type="Animation" id="Animation_42cve"]
+resource_name = "is_on"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_jm7ui")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5325t"]
+_data = {
+"RESET": SubResource("Animation_48gfp"),
+"default": SubResource("Animation_lcps7"),
+"is_on": SubResource("Animation_42cve")
+}
+
 [node name="Oven" type="StaticBody2D"]
 position = Vector2(-22, -4)
 collision_layer = 4
@@ -33,7 +161,7 @@ debug_color = Color(0.835294, 0.870588, 0.458824, 0.419608)
 
 [node name="texture" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(54, -12)
+position = Vector2(22, -14)
 texture = ExtResource("2_jkmr7")
 
 [node name="order" type="Label" parent="."]
@@ -58,5 +186,11 @@ collision_layer = 16
 [node name="collision" type="CollisionShape2D" parent="area"]
 position = Vector2(22, 2)
 shape = SubResource("RectangleShape2D_loilg")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5325t")
+}
+autoplay = "default"
 
 [connection signal="input_event" from="area" to="." method="_on_area_input_event"]

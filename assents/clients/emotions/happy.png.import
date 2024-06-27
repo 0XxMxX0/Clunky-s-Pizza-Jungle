@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw73kl3rygat2"
-path="res://.godot/imported/bench.png-6c8f9016ea4d8a257ef55b6b4c5d50a7.ctex"
+uid="uid://lugji2fklldk"
+path="res://.godot/imported/happy.png-00323e2155a2d96ba1342f24cb84a9f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/tiles/objects/bench.png"
-dest_files=["res://.godot/imported/bench.png-6c8f9016ea4d8a257ef55b6b4c5d50a7.ctex"]
+source_file="res://assents/clients/emotions/happy.png"
+dest_files=["res://.godot/imported/happy.png-00323e2155a2d96ba1342f24cb84a9f2.ctex"]
 
 [params]
 

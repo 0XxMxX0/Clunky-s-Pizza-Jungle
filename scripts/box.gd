@@ -4,7 +4,7 @@ var add_order: bool = false
 var order_placed: bool = false
 
 @onready var path_follow_2d: PathFollow2D = %PathFollow2D
-@onready var client
+@onready var client = null
 
 var pizza_flavor = {
 	"calabresa": 25,
@@ -40,18 +40,21 @@ func _process(delta):
 			client.get_pizza = false
 			 
 		client.order_client = key_order
-		print(client.order_client)
+		client.in_wait = 0
 		order.global_position = $Marker2D.global_position
 		get_parent().add_child(order)
 		
-
 func _on_area_body_entered(body):
-	print(body)
-	
-
-
-func _on_area_area_entered(area):
-	if area.get_parent().is_in_group("Client"):
-		if not area.get_parent().get_pizza:
-			client = area.get_parent()
+	if body.is_in_group("Client"):
+		if not body.get_pizza:
+			client = body
 			add_order = true
+	
+	if body.is_in_group("Player"):
+		if client != null:
+			client.player_in_order_area = true
+
+func _on_area_body_exited(body):
+	if  body.is_in_group("Player"):
+		if client != null:
+			client.player_in_order_area = false

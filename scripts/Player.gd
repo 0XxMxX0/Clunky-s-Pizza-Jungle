@@ -16,6 +16,8 @@ var order_pizza = null
 signal get_pizza_done
 var get_pizza: bool = false
 
+var in_cooking: bool = false
+
 func _ready():
 	GameManager.player = self
 
@@ -28,7 +30,6 @@ func _process(delta):
 func _physics_process(delta):
 	
 	read_input()
-	
 	if is_on_floor():
 		z_index = -1 
 	else:
@@ -51,7 +52,7 @@ func process_animation():
 			animation.play("idle")
 
 func read_input():
-	
+	if in_cooking: return
 	input_vector = Input.get_vector("move_left","move_right","move_down", "move_up", 0.15)
 	
 	var target_velocity = input_vector * speed * 100

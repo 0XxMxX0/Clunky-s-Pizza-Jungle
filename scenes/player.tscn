@@ -10,9 +10,6 @@
 font_size = 10
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5234o"]
-size = Vector2(20, 17.9646)
-
 [sub_resource type="Animation" id="Animation_le13n"]
 length = 0.001
 tracks/0/type = "value"
@@ -233,9 +230,12 @@ font_color = Color(1, 0.494118, 0.105882, 1)
 outline_size = 2
 outline_color = Color(0, 0.0235294, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5234o"]
+size = Vector2(20, 17.9646)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(2.3936, 2.3936)
-collision_mask = 14
+collision_mask = 30
 script = ExtResource("1_igvei")
 
 [node name="Control" type="Control" parent="."]
@@ -262,10 +262,6 @@ offset_bottom = 32.8514
 text = "0
 "
 label_settings = SubResource("LabelSettings_re2yi")
-
-[node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8.98229)
-shape = SubResource("RectangleShape2D_5234o")
 
 [node name="texture" type="Sprite2D" parent="."]
 z_index = 1
@@ -297,6 +293,10 @@ horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.98229)
+shape = SubResource("RectangleShape2D_5234o")
 
 [connection signal="get_order" from="." to="." method="_on_get_order"]
 [connection signal="get_pizza_done" from="." to="." method="_on_get_pizza_done"]
